@@ -1,0 +1,5 @@
+sample,condition,replicate,batch,strandedness,fastq_1,fastq_2
+CTRL_1,control,1,batch1,reverse,fastq/CTRL_1_R1.fastq.gz,fastq/CTRL_1_R2.fastq.gz
+CTRL_2,control,2,batch2,reverse,fastq/CTRL_2_R1.fastq.gz,fastq/CTRL_2_R2.fastq.gz
+TREAT_1,treatment,1,batch1,reverse,fastq/TREAT_1_R1.fastq.gz,fastq/TREAT_1_R2.fastq.gz
+TREAT_2,treatment,2,batch2,reverse,fastq/TREAT_2_R1.fastq.gz,fastq/TREAT_2_R2.fastq.gz

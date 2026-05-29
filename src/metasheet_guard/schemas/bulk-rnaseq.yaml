@@ -1,0 +1,96 @@
+name: bulk-rnaseq
+version: 0.1.0
+
+required_columns:
+  - sample
+  - fastq_1
+  - condition
+
+recommended_columns:
+  - fastq_2
+  - replicate
+  - batch
+  - strandedness
+  - organism
+  - tissue
+
+columns:
+  sample:
+    type: string
+    pattern: "^[A-Za-z0-9_.-]+$"
+    aliases:
+      - sample_id
+      - sample_name
+      - SampleID
+    repair:
+      trim: true
+      spaces_to_underscores: true
+
+  fastq_1:
+    type: path
+    aliases:
+      - fastq1
+      - read1
+      - fq1
+
+  fastq_2:
+    type: path
+    aliases:
+      - fastq2
+      - read2
+      - fq2
+
+  condition:
+    type: category
+    aliases:
+      - group
+      - treatment
+    repair:
+      trim: true
+      normalize_case: lower
+
+  replicate:
+    type: string
+    required_for:
+      - condition_comparison
+
+  batch:
+    type: category
+    optional: true
+
+  strandedness:
+    type: enum
+    values:
+      - forward
+      - reverse
+      - unstranded
+      - auto
+
+  organism:
+    type: string
+
+  tissue:
+    type: string
+
+rules:
+  structural:
+    - required_columns_present
+    - no_duplicate_columns
+    - no_empty_required_values
+
+  file:
+    - fastq_paths_exist
+    - fastq_extensions_valid
+    - fastq_pairs_match
+    - read_direction_consistent
+
+  sample_run:
+    - sample_metadata_consistent_across_runs
+    - lane_structure_consistent
+    - technical_replicates_not_mislabeled_as_biological
+
+  design:
+    - condition_has_replicates
+    - batch_condition_confounding
+    - group_balance_warning
+    - strandedness_consistent_within_assay

@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metasheet-guard"
+version = "0.1.0"
+description = "Experimental-design-aware quality control for sequencing analysis sample sheets."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "MetaSheet-Guard contributors" }
+]
+keywords = [
+  "bioinformatics",
+  "metadata",
+  "sample sheet",
+  "sequencing",
+  "quality control"
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Bio-Informatics"
+]
+dependencies = [
+  "pyyaml>=6.0",
+  "rich>=13.0",
+  "typer>=0.12"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6.0",
+  "pre-commit>=3.5"
+]
+
+[project.scripts]
+metasheet-guard = "metasheet_guard.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/qchiujunhao/metasheet-guard"
+Issues = "https://github.com/qchiujunhao/metasheet-guard/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+metasheet_guard = ["schemas/*.yaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

@@ -1,0 +1,59 @@
+name: generic-ngs
+version: 0.1.0
+
+required_columns:
+  - sample
+  - fastq_1
+
+recommended_columns:
+  - fastq_2
+  - condition
+  - replicate
+  - batch
+
+columns:
+  sample:
+    type: string
+    pattern: "^[A-Za-z0-9_.-]+$"
+    aliases:
+      - sample_id
+      - sample_name
+      - SampleID
+    repair:
+      trim: true
+      spaces_to_underscores: true
+
+  fastq_1:
+    type: path
+    aliases:
+      - fastq1
+      - read1
+      - fq1
+
+  fastq_2:
+    type: path
+    aliases:
+      - fastq2
+      - read2
+      - fq2
+
+  condition:
+    type: category
+    aliases:
+      - group
+      - treatment
+    repair:
+      trim: true
+      normalize_case: lower
+
+  replicate:
+    type: string
+
+  batch:
+    type: category
+
+rules:
+  structural:
+    - required_columns_present
+    - no_duplicate_columns
+    - no_empty_required_values
