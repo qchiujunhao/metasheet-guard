@@ -18,6 +18,7 @@ and supports only the first table-level checks:
 
 - required columns
 - duplicate column names
+- schema-defined column aliases
 - empty values in required columns
 - bundled `generic-ngs` and `bulk-rnaseq` schemas
 

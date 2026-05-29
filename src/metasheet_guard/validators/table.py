@@ -48,6 +48,40 @@ class DuplicateColumnsValidator:
         ]
 
 
+class ColumnAliasValidator:
+    """Detect columns that are known aliases for schema-defined canonical names."""
+
+    def run(self, table: SheetTable, schema: Schema) -> list[Issue]:
+        alias_to_canonical = {
+            alias: column.name
+            for column in schema.columns.values()
+            for alias in column.aliases
+        }
+        issues: list[Issue] = []
+        for column in table.column_names:
+            canonical = alias_to_canonical.get(column)
+            if canonical is None:
+                continue
+            issues.append(
+                Issue(
+                    code="COLUMN_ALIAS_DETECTED",
+                    severity="warning",
+                    message=(
+                        f"Column '{column}' is a known alias for canonical "
+                        f"column '{canonical}'."
+                    ),
+                    suggestion=(
+                        f"Rename '{column}' to '{canonical}' before export or "
+                        "repair the sheet once alias repair is available."
+                    ),
+                    row=1,
+                    column=column,
+                    repairable=True,
+                )
+            )
+        return issues
+
+
 class EmptyRequiredValuesValidator:
     """Check that required columns contain values in every data row."""
 
@@ -80,6 +114,7 @@ def run_table_validators(table: SheetTable, schema: Schema) -> list[Issue]:
 
     validators = [
         DuplicateColumnsValidator(),
+        ColumnAliasValidator(),
         RequiredColumnsValidator(),
         EmptyRequiredValuesValidator(),
     ]

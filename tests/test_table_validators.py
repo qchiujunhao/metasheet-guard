@@ -34,6 +34,24 @@ def test_duplicate_column_is_error(tmp_path: Path) -> None:
     assert "DUPLICATE_COLUMN_NAME" in codes
 
 
+def test_column_alias_is_warning(tmp_path: Path) -> None:
+    path = tmp_path / "alias.csv"
+    path.write_text(
+        "sample_id,condition,fastq_1\nS1,control,S1_R1.fastq.gz\n",
+        encoding="utf-8",
+    )
+    table = read_table(path)
+    schema = load_schema("bulk-rnaseq")
+
+    issues = run_table_validators(table, schema)
+
+    alias_issues = [issue for issue in issues if issue.code == "COLUMN_ALIAS_DETECTED"]
+    assert len(alias_issues) == 1
+    assert alias_issues[0].severity == "warning"
+    assert alias_issues[0].column == "sample_id"
+    assert alias_issues[0].repairable is True
+
+
 def test_empty_required_value_is_error(tmp_path: Path) -> None:
     path = tmp_path / "empty.csv"
     path.write_text("sample,condition,fastq_1\nS1,,S1_R1.fastq.gz\n", encoding="utf-8")

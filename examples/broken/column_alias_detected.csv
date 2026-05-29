@@ -1,0 +1,3 @@
+sample_id,condition,fastq_1
+S1,control,fastq/S1_R1.fastq.gz
+S2,treatment,fastq/S2_R1.fastq.gz
