@@ -1,0 +1,17 @@
+name: Feature request
+description: Suggest a new feature
+title: "[feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Scientific or workflow need
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true

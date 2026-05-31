@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "MetaSheet-Guard"
+message: "If you use MetaSheet-Guard, please cite the software repository."
+type: software
+authors:
+  - family-names: "MetaSheet-Guard contributors"
+version: 0.1.0
+date-released: 2026-05-31
+repository-code: "https://github.com/qchiujunhao/metasheet-guard"
+license: MIT

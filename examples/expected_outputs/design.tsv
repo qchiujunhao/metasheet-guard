@@ -1,0 +1,5 @@
+sample	condition	batch	replicate
+CTRL_1	control	batch1	1
+CTRL_2	control	batch2	2
+TREAT_1	treatment	batch1	1
+TREAT_2	treatment	batch2	2

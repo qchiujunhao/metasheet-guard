@@ -52,6 +52,24 @@ columns:
   batch:
     type: category
 
+  run_id:
+    type: string
+    aliases:
+      - run
+      - Run
+
+  lane:
+    type: string
+
+  library_layout:
+    type: string
+
+  library_strategy:
+    type: string
+
+  platform:
+    type: string
+
 rules:
   structural:
     - required_columns_present

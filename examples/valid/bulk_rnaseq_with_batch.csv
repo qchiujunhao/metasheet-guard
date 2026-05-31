@@ -1,0 +1,5 @@
+sample,condition,replicate,batch,strandedness,fastq_1,fastq_2
+CTRL_A,control,1,batch1,reverse,examples/fastq/CTRL_1_L001_R1.fastq.gz,examples/fastq/CTRL_1_L001_R2.fastq.gz
+CTRL_B,control,2,batch2,reverse,examples/fastq/CTRL_2_L001_R1.fastq.gz,examples/fastq/CTRL_2_L001_R2.fastq.gz
+TREAT_A,treatment,1,batch1,reverse,examples/fastq/TREAT_1_L001_R1.fastq.gz,examples/fastq/TREAT_1_L001_R2.fastq.gz
+TREAT_B,treatment,2,batch2,reverse,examples/fastq/TREAT_2_L001_R1.fastq.gz,examples/fastq/TREAT_2_L001_R2.fastq.gz

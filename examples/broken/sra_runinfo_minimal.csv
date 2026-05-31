@@ -1,0 +1,3 @@
+Run,SampleName,LibraryLayout,LibraryStrategy,Platform
+SRR000001,CTRL_1,PAIRED,RNA-Seq,ILLUMINA
+SRR000002,TREAT_1,PAIRED,RNA-Seq,ILLUMINA

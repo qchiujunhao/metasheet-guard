@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 from collections import Counter
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -57,6 +58,11 @@ class SheetTable:
             return None
         return row.values[index]
 
+    def records(self) -> list[dict[str, str]]:
+        """Return rows as dictionaries keyed by stripped column names."""
+
+        return [row.by_column for row in self.rows]
+
 
 def read_table(path: str | Path, delimiter: str | None = None) -> SheetTable:
     """Read a CSV or TSV sample sheet while preserving duplicate headers."""
@@ -104,3 +110,31 @@ def _detect_delimiter(path: Path, text: str) -> str:
     except csv.Error:
         return ","
     return dialect.delimiter
+
+
+def write_table(
+    rows: Iterable[dict[str, object]],
+    path: str | Path,
+    columns: list[str] | None = None,
+    delimiter: str = ",",
+) -> None:
+    """Write dictionaries to a CSV or TSV file with stable column order."""
+
+    row_list = [dict(row) for row in rows]
+    if columns is None:
+        seen: list[str] = []
+        for row in row_list:
+            for column in row:
+                if column not in seen:
+                    seen.append(column)
+        columns = seen
+
+    output_path = Path(path)
+    if output_path.parent != Path("."):
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with output_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=columns, delimiter=delimiter)
+        writer.writeheader()
+        for row in row_list:
+            writer.writerow({column: row.get(column, "") for column in columns})

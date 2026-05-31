@@ -1,0 +1,16 @@
+site_name: MetaSheet-Guard
+repo_url: https://github.com/qchiujunhao/metasheet-guard
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Quickstart: quickstart.md
+  - Concepts: concepts.md
+  - Schemas: schemas.md
+  - Validator rules: validators.md
+  - Repair: repair.md
+  - Exporters: exporters.md
+  - Reports: reports.md
+  - API: api.md
+  - Related tools: related_tools.md

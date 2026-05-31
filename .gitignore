@@ -9,6 +9,7 @@ __pycache__/
 htmlcov/
 build/
 dist/
+site/
 
 # Virtual environments
 .venv/
@@ -16,12 +17,12 @@ venv/
 env/
 
 # Generated reports and local outputs
-report.json
-report.html
-changes.json
-clean.csv
-nfcore_samplesheet.csv
-design.tsv
+/report.json
+/report.html
+/changes.json
+/clean.csv
+/nfcore_samplesheet.csv
+/design.tsv
 
 # OS/editor files
 .DS_Store

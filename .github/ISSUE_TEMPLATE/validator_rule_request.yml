@@ -1,0 +1,16 @@
+name: Validator rule request
+description: Request a new validation rule
+title: "[validator]: "
+labels: ["validator"]
+body:
+  - type: input
+    id: code
+    attributes:
+      label: Proposed rule code
+      placeholder: EXAMPLE_RULE_CODE
+  - type: textarea
+    id: example
+    attributes:
+      label: Minimal sample sheet example
+    validations:
+      required: true

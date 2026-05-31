@@ -1,0 +1,3 @@
+sample,condition,replicate,strandedness,fastq_1,fastq_2
+S1,control,1,reverse,examples/fastq/CTRL_1_L001_R1.fastq.gz,examples/fastq/CTRL_1_L001_R2.fastq.gz
+S2,treatment,1,reverse,examples/fastq/CTRL_1_L001_R1.fastq.gz,examples/fastq/TREAT_1_L001_R2.fastq.gz

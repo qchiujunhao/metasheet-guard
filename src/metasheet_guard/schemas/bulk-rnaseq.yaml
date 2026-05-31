@@ -72,6 +72,36 @@ columns:
   tissue:
     type: string
 
+  genotype:
+    type: string
+
+  sex:
+    type: category
+
+  subject_id:
+    type: string
+
+  run_id:
+    type: string
+    aliases:
+      - run
+      - Run
+
+  lane:
+    type: string
+
+  library_layout:
+    type: enum
+    values:
+      - single
+      - paired
+
+  library_strategy:
+    type: string
+
+  platform:
+    type: string
+
 rules:
   structural:
     - required_columns_present

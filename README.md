@@ -6,20 +6,26 @@ generation or public metadata collection, but before running workflows such as
 Nextflow, Snakemake, nf-core/rnaseq, or custom RNA-seq pipelines.
 
 This repository currently implements the project foundation and Milestone 1:
-CSV/TSV reading, bundled YAML schemas, table-structure validation, JSON reports,
-and a `metasheet-guard check` command.
+CSV/TSV reading, bundled YAML schemas, validation, repair provenance, workflow
+export, JSON/HTML reports, and a `metasheet-guard` CLI.
 
 ## Scope
 
 MetaSheet-Guard is being built to model relationships between biological
 samples, sequencing runs, lanes, FASTQ files, replicates, conditions, batches,
 and downstream workflow requirements. The current release is intentionally small
-and supports only the first table-level checks:
+and currently supports these first-pass capabilities:
 
 - required columns
 - duplicate column names
 - schema-defined column aliases
 - empty values in required columns
+- sample ID and metadata consistency checks
+- FASTQ path, extension, gzip, pair, and duplication checks
+- sample/run/lane relationship checks
+- batch-condition and related design-risk checks
+- safe repair with `changes.json` provenance
+- nf-core/rnaseq, Snakemake, canonical CSV, and DESeq2 design exports
 - bundled `generic-ngs` and `bulk-rnaseq` schemas
 
 ## Non-goals
@@ -54,6 +60,23 @@ Validate a minimal valid example:
 ```bash
 metasheet-guard check examples/valid/bulk_rnaseq_paired.csv \
   --schema bulk-rnaseq
+```
+
+Repair safe metadata issues and record provenance:
+
+```bash
+metasheet-guard repair examples/broken/condition_case_mixed.csv \
+  --schema bulk-rnaseq \
+  --out clean.csv \
+  --changes changes.json
+```
+
+Export a cleaned sheet:
+
+```bash
+metasheet-guard export examples/valid/bulk_rnaseq_paired.csv \
+  --target nf-core-rnaseq \
+  --out nfcore_samplesheet.csv
 ```
 
 ## Python API
