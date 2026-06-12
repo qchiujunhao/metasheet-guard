@@ -71,6 +71,9 @@ metasheet-guard repair examples/broken/condition_case_mixed.csv \
   --changes changes.json
 ```
 
+Only safe repairs are implemented. Suggested/inference-based repairs are
+reserved for later milestones and currently fail clearly if requested.
+
 Export a cleaned sheet:
 
 ```bash

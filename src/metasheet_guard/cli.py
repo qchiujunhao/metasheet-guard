@@ -145,7 +145,11 @@ def repair(
 ) -> None:
     """Apply conservative safe repairs and write changes.json provenance."""
 
-    result = repair_sheet(path, schema=schema, safe_only=safe_only, dry_run=dry_run)
+    try:
+        result = repair_sheet(path, schema=schema, safe_only=safe_only, dry_run=dry_run)
+    except ValueError as exc:
+        console.print(f"[red]Error:[/red] {exc}")
+        raise typer.Exit(code=1) from exc
     result.to_csv(out)
     result.write_changes(changes)
     console.print(

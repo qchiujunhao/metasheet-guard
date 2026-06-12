@@ -20,7 +20,11 @@ def repair_sheet(
 ) -> RepairResult:
     """Apply deterministic safe repairs and return auditable provenance."""
 
-    del safe_only
+    if not safe_only:
+        raise ValueError(
+            "Suggested repairs are not implemented yet; run with safe_only=True."
+        )
+
     table = read_table(sheet) if isinstance(sheet, str | Path) else sheet
     schema_obj = load_schema(schema) if not isinstance(schema, Schema) else schema
     alias_to_canonical = {

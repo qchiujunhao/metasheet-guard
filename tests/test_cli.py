@@ -104,6 +104,26 @@ def test_repair_command_writes_outputs(tmp_path) -> None:
     assert any(change["rule"] == "trim_and_lowercase" for change in payload)
 
 
+def test_repair_allow_suggestions_fails_clearly(tmp_path) -> None:
+    result = runner.invoke(
+        app,
+        [
+            "repair",
+            "examples/broken/condition_case_mixed.csv",
+            "--schema",
+            "bulk-rnaseq",
+            "--out",
+            str(tmp_path / "clean.csv"),
+            "--changes",
+            str(tmp_path / "changes.json"),
+            "--allow-suggestions",
+        ],
+    )
+
+    assert result.exit_code == 1
+    assert "Suggested repairs are not implemented yet" in result.output
+
+
 def test_export_command_writes_nfcore_samplesheet(tmp_path) -> None:
     output = tmp_path / "nfcore.csv"
 
