@@ -1,13 +1,16 @@
 # MetaSheet-Guard
 
+[Documentation website](https://qchiujunhao.github.io/metasheet-guard/) |
+[Repository](https://github.com/qchiujunhao/metasheet-guard)
+
 MetaSheet-Guard performs experimental-design-aware quality control for sequencing
 analysis sample sheets. It targets the analysis-preparation stage: after FASTQ
 generation or public metadata collection, but before running workflows such as
 Nextflow, Snakemake, nf-core/rnaseq, or custom RNA-seq pipelines.
 
-This repository currently implements the project foundation and Milestone 1:
-CSV/TSV reading, bundled YAML schemas, validation, repair provenance, workflow
-export, JSON/HTML reports, and a `metasheet-guard` CLI.
+The current package includes CSV/TSV reading, bundled YAML schemas, validation,
+repair provenance, workflow export, JSON/HTML reports, and a
+`metasheet-guard` CLI.
 
 ## Scope
 

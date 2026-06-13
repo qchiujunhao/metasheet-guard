@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Experimental-design-aware quality control for sequencing analysis sample sheets."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = "MIT"
 authors = [
   { name = "MetaSheet-Guard contributors" }
 ]
@@ -23,7 +23,6 @@ classifiers = [
   "Development Status :: 2 - Pre-Alpha",
   "Environment :: Console",
   "Intended Audience :: Science/Research",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -42,14 +41,17 @@ dependencies = [
 dev = [
   "pytest>=8.0",
   "ruff>=0.6.0",
-  "pre-commit>=3.5"
+  "pre-commit>=3.5",
+  "mkdocs-material>=9.5"
 ]
 
 [project.scripts]
 metasheet-guard = "metasheet_guard.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/qchiujunhao/metasheet-guard"
+Homepage = "https://qchiujunhao.github.io/metasheet-guard/"
+Documentation = "https://qchiujunhao.github.io/metasheet-guard/"
+Repository = "https://github.com/qchiujunhao/metasheet-guard"
 Issues = "https://github.com/qchiujunhao/metasheet-guard/issues"
 
 [tool.setuptools.packages.find]

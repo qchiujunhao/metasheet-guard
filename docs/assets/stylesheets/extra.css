@@ -1,0 +1,258 @@
+:root {
+  --msg-ink: #17212b;
+  --msg-muted: #526270;
+  --msg-line: #d8e3e5;
+  --msg-panel: #f7fbfb;
+  --msg-teal: #0b8f8a;
+  --msg-teal-dark: #06625f;
+  --msg-amber: #d88a1d;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  letter-spacing: 0;
+}
+
+.md-typeset h1 {
+  color: var(--msg-ink);
+  font-weight: 760;
+}
+
+.md-typeset .md-button {
+  border-radius: 6px;
+}
+
+.md-grid {
+  max-width: 72rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 2.7rem 0 1.9rem;
+}
+
+.hero__content {
+  max-width: 36rem;
+}
+
+.hero__eyebrow,
+.quick-command__label {
+  color: var(--msg-teal-dark);
+  font-size: 0.74rem;
+  font-weight: 760;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.65rem;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 5vw, 4.7rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.hero__lead {
+  color: var(--msg-muted);
+  font-size: 1.12rem;
+  line-height: 1.62;
+  margin: 1.15rem 0 1.45rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.hero__visual {
+  border: 1px solid var(--msg-line);
+  border-radius: 8px;
+  box-shadow: 0 18px 60px rgba(23, 33, 43, 0.12);
+  overflow: hidden;
+}
+
+.hero__visual img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.section {
+  padding: 1.1rem 0;
+}
+
+.lede {
+  border-left: 4px solid var(--msg-teal);
+  color: var(--msg-ink);
+  font-size: 1.06rem;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 54rem;
+  padding-left: 1rem;
+}
+
+.feature-grid,
+.signal-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.signal-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.feature-card,
+.signal-grid article {
+  background: var(--msg-panel);
+  border: 1px solid var(--msg-line);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.feature-card h2,
+.signal-grid h2,
+.workflow h2,
+.quick-command h2 {
+  color: var(--msg-ink);
+  font-size: 1.02rem;
+  line-height: 1.28;
+  margin: 0 0 0.55rem;
+}
+
+.feature-card p,
+.signal-grid p {
+  color: var(--msg-muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.workflow {
+  background:
+    linear-gradient(90deg, rgba(11, 143, 138, 0.08), rgba(216, 138, 29, 0.08)),
+    #fbfdfd;
+  border: 1px solid var(--msg-line);
+  border-radius: 8px;
+  margin: 1.75rem 0;
+  padding: 1.15rem;
+}
+
+.workflow__steps {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.workflow__steps div {
+  align-items: flex-start;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.workflow__steps span {
+  align-items: center;
+  background: var(--msg-teal);
+  border-radius: 999px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 760;
+  height: 1.7rem;
+  justify-content: center;
+  line-height: 1;
+  width: 1.7rem;
+}
+
+.workflow__steps p {
+  color: var(--msg-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.quick-command {
+  align-items: center;
+  border-top: 1px solid var(--msg-line);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 0.75fr) minmax(360px, 1.25fr);
+  margin: 1.8rem 0;
+  padding-top: 1.35rem;
+}
+
+.quick-command > * {
+  min-width: 0;
+}
+
+.quick-command .highlight,
+.quick-command pre {
+  margin: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.signal-grid ul {
+  display: grid;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.signal-grid li {
+  margin: 0;
+}
+
+.signal-grid code {
+  color: var(--msg-teal-dark);
+}
+
+[data-md-color-scheme="slate"] {
+  --msg-ink: #f4f7f8;
+  --msg-muted: #b6c4cc;
+  --msg-line: #314a52;
+  --msg-panel: #17272c;
+  --msg-teal: #20b8b0;
+  --msg-teal-dark: #73d7d2;
+  --msg-amber: #f0ad43;
+}
+
+@media screen and (max-width: 960px) {
+  .hero,
+  .quick-command {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .workflow__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .hero {
+    gap: 1.25rem;
+    padding-top: 1.4rem;
+  }
+
+  .hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .feature-grid,
+  .signal-grid,
+  .workflow__steps {
+    grid-template-columns: 1fr;
+  }
+}
