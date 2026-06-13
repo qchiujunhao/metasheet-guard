@@ -40,9 +40,14 @@ validator, spatial image validator, or generic CSV validation framework.
 
 ## Installation
 
+Install the released package from PyPI:
+
 ```bash
-pip install -e ".[dev]"
+python -m pip install metasheet-guard
+metasheet-guard --version
 ```
+
+For an isolated CLI install, use `pipx install metasheet-guard`.
 
 ## Quickstart
 
@@ -98,6 +103,12 @@ for issue in result.issues:
 ```
 
 ## Development
+
+Install from a source checkout when contributing:
+
+```bash
+python -m pip install -e ".[dev]"
+```
 
 Run tests and linting:
 

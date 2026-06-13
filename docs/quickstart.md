@@ -1,5 +1,14 @@
 # Quickstart
 
+Install MetaSheet-Guard from PyPI:
+
+```bash
+python -m pip install metasheet-guard
+```
+
+The commands below use files from the repository `examples/` directory. Run them
+from a source checkout, or replace the paths with your own sample sheet.
+
 Check a bulk RNA-seq sample sheet:
 
 ```bash
