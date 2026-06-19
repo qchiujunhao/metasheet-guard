@@ -72,10 +72,7 @@ def check(
         Path | None,
         typer.Option(
             "--root",
-            help=(
-                "FASTQ root directory. Accepted for CLI compatibility; "
-                "unused in Milestone 1."
-            ),
+            help="FASTQ root directory used to resolve relative FASTQ paths.",
         ),
     ] = None,
     json_path: Annotated[

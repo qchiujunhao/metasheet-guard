@@ -16,6 +16,15 @@ def test_help_works() -> None:
     assert "check" in result.output
 
 
+def test_check_help_describes_root_option() -> None:
+    result = runner.invoke(app, ["check", "--help"])
+
+    assert result.exit_code == 0
+    assert "FASTQ root directory used to resolve relative FASTQ" in result.output
+    assert "paths." in result.output
+    assert "unused in Milestone 1" not in result.output
+
+
 def test_check_valid_example_exits_zero() -> None:
     result = runner.invoke(
         app,
